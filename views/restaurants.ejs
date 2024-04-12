@@ -49,27 +49,31 @@
     </aside>
     <main>
       <h1>Recommended restaurants</h1>
-      <p>Find your next favorite restaurants with help of our other users!</p>
-      <p>We Found <%= numberOfRestaurants %> restaurant</p>
-      <ul id="restaurants-list">
-        <% for (const restaurant of restaurants){%>
-        <li class="restaurant-item">
-          <article>
-            <h2><%= restaurant.name %></h2>
-            <div class="restaurant-meta">
-              <p><%= restaurant.cuisine %></p>
-              <p><%= restaurant.address %></p>
-            </div>
-            <p>
-              <%= restaurant.description %>
-            </p>
-            <div class="restaurant-actions">
-              <a href="<%= restaurant.website %>">View Website</a>
-            </div>
-          </article>
-        </li>
-        <% } %>
-      </ul>
+      <% if (numberOfRestaurants === 0 ) {%>
+      <p>Unfortunatly we have no restaurants yet, Maybe recommend some!!! 😊😁👍</p>
+      <%} else {%>
+        <p>Find your next favorite restaurants with help of our other users!</p>
+        <p>We Found <%= numberOfRestaurants %> restaurant</p>
+        <ul id="restaurants-list">
+          <% for (const restaurant of restaurants){%>
+          <li class="restaurant-item">
+            <article>
+              <h2><%= restaurant.name %></h2>
+              <div class="restaurant-meta">
+                <p><%= restaurant.cuisine %></p>
+                <p><%= restaurant.address %></p>
+              </div>
+              <p>
+                <%= restaurant.description %>
+              </p>
+              <div class="restaurant-actions">
+                <a href="<%= restaurant.website %>">View Website</a>
+              </div>
+            </article>
+          </li>
+          <% } %>
+        </ul>
+      <%}%>
     </main>
   </body>
 </html>
