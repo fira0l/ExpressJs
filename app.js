@@ -40,6 +40,11 @@ app.post("/recommend", function (req, res) {
   res.redirect("/confirm");
 });
 
+app.get('/restaurants/:id',function(req,res){
+  const restId = req.params.id;
+  res.render('restaurantsdetail',{rid:restId});
+});
+
 app.get("/about", function (req, res) {
   res.render("about");
 });
